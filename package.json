@@ -16,8 +16,5 @@
   "bugs": {
     "url": "https://github.com/j00leee/pcsampleapp/issues"
   },
-  "homepage": "https://github.com/j00leee/pcsampleapp#readme",
-  "dependencies": {
-    "socket.io": "^4.2.0"
-  }
+  "homepage": "https://github.com/j00leee/pcsampleapp#readme"
 }

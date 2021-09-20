@@ -42,14 +42,12 @@ mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnified
     .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
     .catch((error) => console.log(error.message));
 
-    if (process.env.NODE_ENV === 'production') {
+    if (['production'].includes(process.env.NODE_ENV)) {
+      app.use(express.static('client/build'));
+    
       const path = require('path');
-      console.log(path.join(__dirname, 'client', 'build', 'index.html'));
-      app.use(express.static(__dirname));
-      app.use(express.static(path.join(__dirname, 'client', 'build')));
-      app.get('/*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-        console.log(path.join(__dirname, 'client', 'build', 'index.html'));
+      app.get('*', (req, res) => {
+        res.sendFile(path.resolve('client', 'build', 'index.html'));
       });
     }
 
