@@ -7,11 +7,7 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"cd ../client && npm start\"",
     "server": "nodemon index.js",
-    "heroku-postbuild": "npm run build",
-    "test": "react-scripts test --env=jsdom",
-     "eject": "react-scripts eject",
-     "build": "react-scripts build",
-     "dev": "react-scripts start"
+    "heroku-postbuild": "npm run build && cd client && npm install && npm run export"
   },
   "keywords": [],
   "author": "",
