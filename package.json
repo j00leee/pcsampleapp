@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -17,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/j00leee/pcsampleapp/issues"
   },
-  "homepage": "https://github.com/j00leee/pcsampleapp#readme"
+  "homepage": "https://github.com/j00leee/pcsampleapp#readme",
+  "dependencies": {
+    "socket.io": "^4.2.0"
+  }
 }
