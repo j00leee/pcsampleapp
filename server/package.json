@@ -7,7 +7,7 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"cd ../client && npm start\"",
     "server": "nodemon index.js",
-    "heroku-postbuild": "npm run build && cd client && npm install && npm run export"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
