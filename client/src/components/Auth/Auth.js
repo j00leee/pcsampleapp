@@ -47,7 +47,7 @@ const SignUp = () => {
     try {
       dispatch({ type: AUTH, data: { result, token } });
 
-      history.push('/');
+      history.push('/search');
     } catch (error) {
       console.log(error);
     }
