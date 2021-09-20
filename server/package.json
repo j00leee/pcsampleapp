@@ -7,7 +7,8 @@
   
   "scripts": {
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client&& npm run build --prefix client",
-    "start": "set NODE_ENV=dev && nodemon index.js"
+    "start": "concurrently \"npm run server\" \"cd ../client && npm start\"",
+    "server": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
