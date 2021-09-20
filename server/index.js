@@ -42,13 +42,12 @@ mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnified
     .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
     .catch((error) => console.log(error.message));
 
-    if (['production'].includes(process.env.NODE_ENV)) {
+    if(process.env.NODE_ENV === 'production'){
+      const path  =  require('path');
       app.use(express.static('client/build'));
-    
-      const path = require('path');
-      app.get('*', (req, res) => {
-        res.sendFile(path.resolve('client', 'build', 'index.html'));
-      });
-    }
+      app.get('/*',(req,res)=>{ 
+          res.sendfile(path.resolve(__dirname,'../client','build','index.html')); // change as per your index.html 
+      })
+  }
 
 //mongoose.set('useFindAndModify', false);
