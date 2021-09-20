@@ -2,9 +2,9 @@
   "name": "demoapp",
   "version": "1.0.0",
   "description": "",
-  "main": "server/index.js",
+  "main": ".server/index.js",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "node .server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
