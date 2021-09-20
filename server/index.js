@@ -8,13 +8,15 @@ import dotenv from 'dotenv';
 //const express = require('express');
 
 import postRoutes from './routes/posts.js';
+import userRouter from "./routes/user.js";
 
-app.get('/', (req, res) => {
-  res.send('Hello to pcdemoapp');
-});
+
 
 const app = express();
 dotenv.config();
+app.get('/', (req, res) => {
+  res.send('Hello to pcdemoapp');
+});
 
 app.use(bodyParser.json({ limit: "30mb", extended: true  }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true  }));
@@ -31,6 +33,7 @@ app.use((req, res, next) => {
     next(); // call next middlewer in line
   });
 app.use('/posts', postRoutes);
+app.use("/user", userRouter);
 
 //const CONNECTION_URL = 'mongodb+srv://pcdemouser:pcdemouser123@cluster0.suy2y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 5000;
